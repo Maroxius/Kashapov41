@@ -35,8 +35,17 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -55,6 +64,41 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Category.cs">
+      <DependentUpon>Kashapov41Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Kashapov41Model.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Kashapov41Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Manufacturer.cs">
+      <DependentUpon>Kashapov41Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MeasurementUnit.cs">
+      <DependentUpon>Kashapov41Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Order.cs">
+      <DependentUpon>Kashapov41Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OrderProduct.cs">
+      <DependentUpon>Kashapov41Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PickupPoint.cs">
+      <DependentUpon>Kashapov41Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Product.cs">
+      <DependentUpon>Kashapov41Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Role.cs">
+      <DependentUpon>Kashapov41Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Supplier.cs">
+      <DependentUpon>Kashapov41Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="User.cs">
+      <DependentUpon>Kashapov41Model.tt</DependentUpon>
+    </Compile>
     <Page Include="AddEditPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -69,6 +113,16 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Kashapov41Model.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Kashapov41Model.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Kashapov41Model.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Kashapov41Model.edmx</DependentUpon>
     </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
@@ -101,6 +155,14 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EntityDeploy Include="Kashapov41Model.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Kashapov41Model.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Kashapov41Model.edmx.diagram">
+      <DependentUpon>Kashapov41Model.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -113,6 +175,31 @@
     <Resource Include="Images\icon.ico" />
     <Resource Include="Images\logo.png" />
     <Resource Include="Images\picture.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\B320R5.jpg" />
+    <Resource Include="Images\D329H3.jpg" />
+    <Resource Include="Images\D572U8.jpg" />
+    <Resource Include="Images\F572H7.jpg" />
+    <Resource Include="Images\F635R4.jpg" />
+    <Resource Include="Images\G432E4.jpg" />
+    <Resource Include="Images\G783F5.jpg" />
+    <Resource Include="Images\H782T5.jpg" />
+    <Resource Include="Images\J384T6.jpg" />
+    <Resource Include="Images\А112Т4.jpg" />
+    <Content Include="Kashapov41Model.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Kashapov41Model.Context.cs</LastGenOutput>
+      <DependentUpon>Kashapov41Model.edmx</DependentUpon>
+    </Content>
+    <Content Include="Kashapov41Model.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Kashapov41Model.edmx</DependentUpon>
+      <LastGenOutput>Kashapov41Model.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

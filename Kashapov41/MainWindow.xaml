@@ -5,15 +5,15 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Kashapov41"
         mc:Ignorable="d"
-        Title="Kashapov41" Height="750" Width="1000" FontFamily="Comic Sans MS" Icon="Images/icon.ico">
+        Title="Кашапов 41" Height="750" Width="900" FontFamily="Comic Sans MS" Icon="Images/icon.ico">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="75"></RowDefinition>
+            <RowDefinition Height="125"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
             <RowDefinition Height="30"></RowDefinition>
         </Grid.RowDefinitions>
-        <Image Source="Images/logo.png" HorizontalAlignment="Left"></Image>
-        <TextBlock Text="Кашапов 41" FontSize="30" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
+        <Image Source="Images/logo.png" HorizontalAlignment="Left" Margin="3"></Image>
+        <TextBlock Text="ООО Кашапов 41 размер" FontSize="30" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
         <Frame Grid.Row="1" Name="MainFrame" ContentRendered="MainFrame_ContentRendered" NavigationUIVisibility="Hidden"></Frame>
         <Button Content="Назад" Name="BtnBack" Width="175" Height="30" HorizontalAlignment="Right" Margin="5" Click="BtnBack_Click"></Button>
     </Grid>

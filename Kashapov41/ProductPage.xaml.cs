@@ -23,11 +23,8 @@ namespace Kashapov41.Images
         public ProductPage()
         {
             InitializeComponent();
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            Manager.MainFrame.Navigate(new AddEditPage());
+            var currentProducts = Kashapov41Entities.GetContext().Product.ToList();
+            ProductListView.ItemsSource = currentProducts;
         }
     }
 }
