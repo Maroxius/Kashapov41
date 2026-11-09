@@ -25,6 +25,60 @@ namespace Kashapov41.Images
             InitializeComponent();
             var currentProducts = Kashapov41Entities.GetContext().Product.ToList();
             ProductListView.ItemsSource = currentProducts;
+            DiscountCombo.SelectedIndex = 0;
+            UpdateProducts();
+        }
+
+        private void UpdateProducts()
+        {
+            var currentProducts = Kashapov41Entities.GetContext().Product.ToList();
+            if (DiscountCombo.SelectedIndex == 0) 
+            {
+                currentProducts = currentProducts.Where(p => (p.ProductDiscountAmount >= 0 && p.ProductDiscountAmount <= 100)).ToList();
+            }
+            if (DiscountCombo.SelectedIndex == 1)
+            {
+                currentProducts = currentProducts.Where(p => (p.ProductDiscountAmount >= 0 && p.ProductDiscountAmount < 10)).ToList();
+            }
+            if (DiscountCombo.SelectedIndex == 2)
+            {
+                currentProducts = currentProducts.Where(p => (p.ProductDiscountAmount >= 10 && p.ProductDiscountAmount < 15)).ToList();
+            }
+            if (DiscountCombo.SelectedIndex == 3)
+            {
+                currentProducts = currentProducts.Where(p => (p.ProductDiscountAmount >= 15 && p.ProductDiscountAmount <= 100)).ToList();
+            }
+            currentProducts = currentProducts.Where(p => p.ProductName.ToLower().Contains(TBoxSearch.Text.ToLower())).ToList();
+            if (RBtn_Asc.IsChecked.Value)
+            {
+                currentProducts = currentProducts.OrderBy(p => p.ProductCost).ToList();
+            }
+            if (RBtn_Desc.IsChecked.Value)
+            {
+                currentProducts = currentProducts.OrderByDescending(p => p.ProductCost).ToList();
+            }
+            ProductListView.ItemsSource = currentProducts;
+            amountCounter.Text = "Кол-во " + currentProducts.Count().ToString() + " из " + Kashapov41Entities.GetContext().Product.ToList().Count().ToString();
+        }
+
+        private void TBoxSearch_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            UpdateProducts();
+        }
+
+        private void RBtn_Asc_Checked(object sender, RoutedEventArgs e)
+        {
+            UpdateProducts();
+        }
+
+        private void RBtn_Desc_Checked(object sender, RoutedEventArgs e)
+        {
+            UpdateProducts();
+        }
+
+        private void DiscountCombo_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            UpdateProducts();
         }
     }
 }
