@@ -20,9 +20,19 @@ namespace Kashapov41.Images
     /// </summary>
     public partial class ProductPage : Page
     {
-        public ProductPage()
+        public ProductPage(User user)
         {
             InitializeComponent();
+            if (user != null)
+            {
+                UserTB.Text = "Вы авторизованы как " + user.UserSurname + " " + user.UserName + " " + user.UserPatronymic;
+                RoleTB.Text = "Роль: " + Kashapov41Entities.GetContext().Role.Find(user.UserRole).RoleName.ToString();
+            }
+            else
+            {
+                UserTB.Text = "Вы авторизованы как Гость";
+                RoleTB.Text = "Роль: Гость";
+            }
             var currentProducts = Kashapov41Entities.GetContext().Product.ToList();
             ProductListView.ItemsSource = currentProducts;
             DiscountCombo.SelectedIndex = 0;

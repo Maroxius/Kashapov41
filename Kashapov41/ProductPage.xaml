@@ -14,18 +14,22 @@
             <RowDefinition Height="auto"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Right" Grid.Row="0" Margin="0,0,10,5">
+            <TextBlock Name="UserTB" Text="Вы авторизованы как ___" FontSize="15"></TextBlock>
+            <TextBlock Name="RoleTB" Text="Роль: ___" FontSize="15"></TextBlock>
+        </StackPanel>
         <WrapPanel Orientation="Horizontal" HorizontalAlignment="Center" Grid.Row="1" Margin="0,0,0,5">
-            <TextBlock Text="Кол-во __ из __" Name="amountCounter" Margin="0,0,15,0"></TextBlock>
+            <TextBlock Text="Кол-во __ из __" Name="amountCounter" Margin="0,0,15,0" FontSize="14"></TextBlock>
             <StackPanel Orientation="Vertical" Margin="0,0,15,0">
-                <TextBlock Text="Поиск по наименованию"></TextBlock>
-                <TextBox Width="150" Name="TBoxSearch" TextChanged="TBoxSearch_TextChanged"></TextBox>
+                <TextBlock Text="Поиск по наименованию" FontSize="14"></TextBlock>
+                <TextBox Width="150" Name="TBoxSearch" TextChanged="TBoxSearch_TextChanged" FontSize="14"></TextBox>
             </StackPanel>
             <StackPanel Orientation="Vertical" Margin="0,0,15,0">
-                <RadioButton Content="По возрастанию стоимости" Name="RBtn_Asc" Checked="RBtn_Asc_Checked"></RadioButton>
-                <RadioButton Content="По убыванию стоимости" Name="RBtn_Desc" Checked="RBtn_Desc_Checked"></RadioButton>
+                <RadioButton Content="По возрастанию стоимости" Name="RBtn_Asc" Checked="RBtn_Asc_Checked" FontSize="14"></RadioButton>
+                <RadioButton Content="По убыванию стоимости" Name="RBtn_Desc" Checked="RBtn_Desc_Checked" FontSize="14"></RadioButton>
             </StackPanel>
             <StackPanel Orientation="Vertical">
-                <TextBlock Text="Фильтрация по скидке"></TextBlock>
+                <TextBlock Text="Фильтрация по скидке" FontSize="14"></TextBlock>
                 <ComboBox Width="150" Name="DiscountCombo" SelectionChanged="DiscountCombo_SelectionChanged">
                     <TextBlock>Все</TextBlock>
                     <TextBlock>от 0 до 10%</TextBlock>
